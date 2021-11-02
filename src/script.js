@@ -1,16 +1,19 @@
 function calculateSalary(salario, vendas){
-    for(let i=0; i<vendas.length; i++){
-        if(vendas[i]<=1200){
-            let comissao=3/100*vendas[i]
-            salario+=comissao
-        }else{
-            let comissao=5/100*vendas[i]
-            salario+=comissao
-        }
+    let output = salario
+    let comissao
+    if(vendas <= 1200){
+        comissao = vendas*(3/100)
+        output += comissao        
+    }else{
+        comissao = 1200*(3/100)
+        output+=comissao
+        let resto = vendas - 1200
+        comissao=resto*(5/100)
+        output+=comissao
     }
-    return salario
+    return output
 }
-console.log(calculateSalary(1500,[1057,2000,981]))
+console.log(calculateSalary(1000,2000))
 console.log("-------------------------------------")
 function calculateStock(qatual, qmin, qmax){
     let qmed=(qmax+qmin)/2
